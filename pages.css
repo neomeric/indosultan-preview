@@ -545,3 +545,24 @@
 .soap-card .cap .go { margin-top: 2px; font-family: var(--font-sans); font-size: 12px; letter-spacing: .03em; color: var(--ink-soft); }
 .soap-card:hover .cap .go { color: var(--gold); }
 @media (max-width: 1100px) { .soap-grid { grid-template-columns: 1fr 1fr; } }
+
+
+/* =========================================================
+   FIX: product cut-outs have white backgrounds — present them
+   on clean white tiles so the background disappears (no more
+   "white box on beige"). multiply blends any edge/halo away.
+   ========================================================= */
+
+/* Hero product panel (soap + product-webp brand heroes) */
+.page-hero-media.contain { background: #ffffff; }
+.page-hero-media.contain img { padding: 30px; mix-blend-mode: multiply; }
+
+/* Soap Bars brand cards: clean white product cards */
+.soap-card { background: #ffffff; box-shadow: 0 1px 2px rgba(15,15,18,.05); }
+.soap-card .pic { background: #ffffff; aspect-ratio: 4 / 3; padding: 18px; }
+.soap-card .pic img { mix-blend-mode: multiply; }
+.soap-card .cap { background: #ffffff; border-top: 1px solid var(--rule); }
+
+/* Products-index cards if any use contained product cut-outs */
+.line-card .media.contain { background: #ffffff; }
+.line-card .media.contain img { mix-blend-mode: multiply; }
