@@ -566,3 +566,9 @@
 /* Products-index cards if any use contained product cut-outs */
 .line-card .media.contain { background: #ffffff; }
 .line-card .media.contain img { mix-blend-mode: multiply; }
+
+
+/* Full-composition hero (e.g. mixed brand range): show entire image, never crop sides */
+.page-hero-media.show-all { background: #e9e7e1; }
+.page-hero-media.show-all img { object-fit: contain; mix-blend-mode: normal; }
+.page-hero-media.show-all::after { display: none; }
