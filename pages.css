@@ -516,3 +516,11 @@
   .steps { grid-template-columns: 1fr; }
   .article-figure { aspect-ratio: 16/9; }
 }
+
+
+/* ----- Product-on-white imagery (hero + cards) ----- */
+.page-hero-media.contain { background: var(--cream-2); }
+.page-hero-media.contain img { object-fit: contain; padding: 32px; filter: none; }
+.page-hero-media.contain::after { display: none; }
+.line-card .media.contain { background: var(--cream-2); }
+.line-card .media.contain img { object-fit: contain; padding: 22px; filter: none; }
