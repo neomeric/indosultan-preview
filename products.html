@@ -278,5 +278,32 @@
     </div>
   </footer>
 
+<style>
+.isjpv{position:fixed;left:16px;bottom:16px;z-index:99999;display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:999px;background:rgba(20,20,24,.82);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:0 10px 30px rgba(0,0,0,.28);font-family:ui-sans-serif,system-ui,sans-serif}
+.isjpv b{color:#fff;font-size:10px;letter-spacing:.14em;text-transform:uppercase;opacity:.7;padding:0 2px 0 6px}
+.isjpv button{appearance:none;border:0;cursor:pointer;width:22px;height:22px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(255,255,255,.25);position:relative;padding:0}
+.isjpv button[aria-pressed="true"]{box-shadow:inset 0 0 0 1px rgba(255,255,255,.9),0 0 0 2px rgba(255,255,255,.9)}
+.isjpv button>span{position:absolute;bottom:130%;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:10px;color:#fff;background:rgba(20,20,24,.95);padding:3px 7px;border-radius:5px;opacity:0;pointer-events:none;transition:opacity .15s;letter-spacing:.03em}
+.isjpv button:hover>span{opacity:1}
+@media(max-width:560px){.isjpv b{display:none}}
+</style>
+<div class="isjpv" role="group" aria-label="Preview theme switcher">
+  <b>Theme</b>
+  <button data-p="bone" style="background:#f4f1ea" aria-pressed="false"><span>Bone (recommended)</span></button>
+  <button data-p="sultan" style="background:#dedacf" aria-pressed="false"><span>Warm silver (current)</span></button>
+  <button data-p="platinum" style="background:#d8d6cf" aria-pressed="false"><span>Platinum</span></button>
+  <button data-p="cream" style="background:#f7f1df" aria-pressed="false"><span>Cream</span></button>
+  <button data-p="forest" style="background:#15281d" aria-pressed="false"><span>Forest</span></button>
+  <button data-p="onyx" style="background:#0e0e10" aria-pressed="false"><span>Onyx (dark)</span></button>
+</div>
+<script>
+(function(){var K="isj-preview-palette",s=localStorage.getItem(K);
+if(s)document.body.setAttribute("data-palette",s);
+function sync(){var c=document.body.getAttribute("data-palette");
+document.querySelectorAll(".isjpv button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.p===c);});}
+document.querySelectorAll(".isjpv button").forEach(function(b){b.addEventListener("click",function(){
+document.body.setAttribute("data-palette",b.dataset.p);localStorage.setItem(K,b.dataset.p);sync();});});
+sync();})();
+</script>
 </body>
 </html>

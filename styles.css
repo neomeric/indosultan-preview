@@ -1375,3 +1375,10 @@ body[data-palette="champagne"] {
   .section .header { grid-template-columns: 1fr; gap: 24px; }
   .cta-row { grid-template-columns: 1fr; gap: 32px; }
 }
+
+/* ------- Bone: cleaner, lighter warm canvas (crisper product/spec contrast) ------- */
+body[data-palette="bone"] {
+  --cream:   #f4f1ea;
+  --cream-2: #e9e4d8;
+  --cream-3: #dbd5c5;
+}
