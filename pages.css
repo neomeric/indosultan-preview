@@ -524,3 +524,24 @@
 .page-hero-media.contain::after { display: none; }
 .line-card .media.contain { background: var(--cream-2); }
 .line-card .media.contain img { object-fit: contain; padding: 22px; filter: none; }
+
+
+/* ----- Soap Bars hub: brand range by category ----- */
+.cat-block { margin-bottom: 56px; }
+.cat-block:last-child { margin-bottom: 0; }
+.cat-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 26px; padding-bottom: 14px; border-bottom: 1px solid var(--rule); }
+.cat-head h3 { font-family: var(--font-display); font-weight: 600; font-size: clamp(22px, 2.4vw, 30px); letter-spacing: -.02em; color: var(--ink); }
+.cat-head h3 .it { font-family: var(--font-serif); font-style: italic; font-weight: 400; color: var(--gold); letter-spacing: -.015em; }
+.cat-head .count { margin-left: auto; font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft); }
+.soap-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.soap-card { display: flex; flex-direction: column; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; background: var(--cream); transition: transform .25s ease, box-shadow .25s ease; }
+.soap-card:hover { transform: translateY(-5px); box-shadow: 0 26px 50px -26px rgba(15,15,18,.30); }
+.soap-card .pic { aspect-ratio: 1/1; background: var(--cream-2); display: grid; place-items: center; padding: 24px; overflow: hidden; }
+.soap-card .pic img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; transition: transform .9s cubic-bezier(.2,.7,.2,1); }
+.soap-card:hover .pic img { transform: scale(1.05); }
+.soap-card .cap { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 7px; }
+.soap-card .cap h4 { font-family: var(--font-display); font-weight: 600; font-size: 18px; letter-spacing: -.015em; color: var(--ink); }
+.soap-card .cap .m { font-family: var(--font-mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); }
+.soap-card .cap .go { margin-top: 2px; font-family: var(--font-sans); font-size: 12px; letter-spacing: .03em; color: var(--ink-soft); }
+.soap-card:hover .cap .go { color: var(--gold); }
+@media (max-width: 1100px) { .soap-grid { grid-template-columns: 1fr 1fr; } }
