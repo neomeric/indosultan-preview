@@ -1754,3 +1754,25 @@ body::-webkit-scrollbar-thumb { background: color-mix(in oklch, var(--gold) 45%,
 @media (max-width: 720px) {
   .reach-map { height: 360px; }
 }
+
+/* =========================================================
+   Brand crown — the original IndoSultan crown, redrawn flat
+   in foil gold (replaces the IS diamond mark)
+   ========================================================= */
+.brand-crown {
+  width: 42px;
+  height: auto;
+  display: block;
+  flex-shrink: 0;
+  color: var(--gold);
+  transition: color .25s ease;
+}
+.brand:hover .brand-crown { color: var(--gold-bright); }
+.seal-crown {
+  display: block;
+  width: 28px;
+  height: auto;
+  margin: 0 auto 8px;
+  color: var(--gold-bright);
+}
+.seal-mono .seal-is { line-height: 1; }
