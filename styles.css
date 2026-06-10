@@ -1531,3 +1531,88 @@ body[data-palette="bone"] {
 @media (max-width: 720px) {
   .footer-bottom .links { gap: 14px 20px; }
 }
+
+/* =========================================================
+   Craft layer — texture, foil, motion (wow pass, 2026-06)
+   Stays inside the approved system: same palette, same type.
+   ========================================================= */
+
+/* Film grain: printed-stock tactility over the whole canvas */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  opacity: 0.038;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Brand-true selection + slim scrollbar */
+::selection { background: var(--gold); color: #fff; }
+html { scrollbar-width: thin; scrollbar-color: color-mix(in oklch, var(--gold) 55%, var(--cream-3)) transparent; }
+body::-webkit-scrollbar { width: 10px; }
+body::-webkit-scrollbar-thumb { background: color-mix(in oklch, var(--gold) 45%, var(--cream-3)); border-radius: 5px; border: 2px solid var(--cream); }
+
+/* Buttons: quiet lift + gold halo on hover */
+.btn-pill, .nav-cta, .enquiry .submit {
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
+}
+.btn-pill:hover, .nav-cta:hover, .enquiry .submit:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 26px -14px rgba(15,15,18,.5), 0 0 0 3px color-mix(in oklch, var(--gold) 22%, transparent);
+}
+
+/* Dark product index rows: spotlight + gold cue on hover */
+.product-row { transition: background .3s ease; }
+.product-row:hover { background: rgba(255,255,255,.03); }
+.product-row:hover .arrow { color: var(--gold-bright); }
+.product-row .arrow { transition: color .25s ease, transform .25s ease; }
+.product-row:hover .arrow { transform: translateX(4px); }
+
+/* Marquee: pause to read */
+.marquee:hover .marquee-track { animation-play-state: paused; }
+
+@media (prefers-reduced-motion: no-preference) {
+
+  /* Foil glint sweeping the rotating seal */
+  .seal { position: relative; }
+  .seal::after {
+    content: "";
+    position: absolute;
+    inset: -6%;
+    border-radius: 50%;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    background: conic-gradient(from 0deg,
+      transparent 0deg 64deg,
+      rgba(255, 226, 164, 0.16) 78deg,
+      rgba(255, 226, 164, 0.05) 88deg,
+      transparent 100deg 360deg);
+    animation: isj-glint 7.5s linear infinite;
+  }
+  @keyframes isj-glint { to { transform: rotate(360deg); } }
+
+  /* Foil-text shimmer on the hero's gold word */
+  .hero-head .au {
+    background: linear-gradient(100deg,
+      var(--gold) 30%, #e9cd8f 46%, var(--gold) 60%);
+    background-size: 220% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: isj-foil 6.5s ease-in-out infinite;
+  }
+  @keyframes isj-foil { 0%,100% { background-position: 110% 0; } 50% { background-position: -10% 0; } }
+
+  /* Scroll reveals (elements tagged .rv by site.js; no-JS = no hiding) */
+  .rv { opacity: 0; transform: translateY(22px);
+        transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1);
+        transition-delay: var(--rvd, 0ms); }
+  .rv.in { opacity: 1; transform: none; }
+
+  /* Section marker hairline draws in with its header */
+  .header.rv .section-marker .rule { transform: scaleX(0); transform-origin: left;
+        transition: transform .9s .25s cubic-bezier(.2,.7,.2,1); }
+  .header.rv.in .section-marker .rule { transform: scaleX(1); }
+}

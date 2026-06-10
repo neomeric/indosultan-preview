@@ -598,3 +598,16 @@
   .soap-grid { grid-template-columns: 1fr; }
   .gallery { grid-template-columns: 1fr; }
 }
+
+/* ----- Sustainability: dark commitments band ----- */
+.section.commit { background: var(--forest); position: relative; overflow: hidden; }
+.section.commit .header h2 { color: var(--cream); }
+.section.commit .header h2 .it { color: var(--gold-bright); }
+.section.commit .section-marker .lbl { color: rgba(245,235,210,0.6); }
+.section.commit .section-marker .rule { background: var(--gold-bright); }
+.commit-pillars .pillar { background: rgba(255,255,255,0.04); border-color: rgba(245,235,210,0.14); }
+.commit-pillars .pillar h3 { color: var(--cream); }
+.commit-pillars .pillar p { color: rgba(245,235,210,0.72); }
+.commit-pillars .pillar .k { color: var(--gold-bright); }
+.section.commit .lead { color: rgba(245,235,210,0.88); }
+.section.commit .prose p { color: rgba(245,235,210,0.72); }
