@@ -616,3 +616,7 @@
 .news-feature .media { display: block; }
 .news-feature h2 a { transition: color .25s ease; }
 .news-feature h2 a:hover .it { color: var(--gold-bright); }
+
+/* Inner-page hero titles: italic accent words carry the gold,
+   matching the homepage hero treatment */
+.page-title .it { color: var(--gold); }
