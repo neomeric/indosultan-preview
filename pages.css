@@ -621,25 +621,24 @@
    matching the homepage hero treatment */
 .page-title .it { color: var(--gold); }
 
+}
+
 /* =========================================================
-   Gold diamond lattice — a quiet brand pattern mounted
-   behind every inner-page hero photo (mat-board treatment)
+   Gold flow lines — faint engraved waves in the hero canvas,
+   anchored behind the photo (no offset box; photo animates
+   over a stable backdrop)
    ========================================================= */
-@media (min-width: 1101px) {
-  .page-hero-grid::before {
-    content: "";
-    grid-column: 2;
-    grid-row: 1;
-    align-self: center;
-    height: 440px; /* match .page-hero-media exactly — never taller */
-    transform: translate(20px, -20px);
-    border-radius: 6px;
-    border: 1px solid color-mix(in oklch, var(--gold) 24%, transparent);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18'%3E%3Cpath d='M9 4.5 L13.5 9 L9 13.5 L4.5 9 Z' fill='none' stroke='%23c99a45' stroke-opacity='0.14'/%3E%3C/svg%3E");
-    background-size: 18px 18px;
-  }
-  .page-hero-grid .page-hero-text { grid-column: 1; grid-row: 1; }
-  .page-hero-grid .page-hero-media { grid-column: 2; grid-row: 1; position: relative; z-index: 1; }
-  /* pattern panel shouldn't appear on text-only heroes */
-  .page-hero-grid:has(.page-hero-text:only-child)::before { content: none; }
+.page-hero { position: relative; }
+.page-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(90deg, transparent 8%, #000 42%);
+          mask-image: linear-gradient(90deg, transparent 8%, #000 42%);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='960' height='560' viewBox='0 0 960 560'%3E%3Cpath d='M-20,70 C160,54 320,86 480,60 S800,86 980,64' fill='none' stroke='%23c99a45' stroke-opacity='0.16'/%3E%3Cpath d='M-20,112 C160,91 320,133 480,100 S800,133 980,104' fill='none' stroke='%23c99a45' stroke-opacity='0.16'/%3E%3Cpath d='M-20,154 C160,132 320,176 480,141 S800,176 980,145' fill='none' stroke='%23c99a45' stroke-opacity='0.16'/%3E%3Cpath d='M-20,196 C160,177 320,215 480,185 S800,215 980,189' fill='none' stroke='%23c99a45' stroke-opacity='0.16'/%3E%3Cpath d='M-20,238 C160,225 320,251 480,230 S800,251 980,233' fill='none' stroke='%23c99a45' stroke-opacity='0.16'/%3E%3Cpath d='M-20,280 C160,270 320,290 480,274 S800,290 980,276' fill='none' stroke='%23c99a45' stroke-opacity='0.16'/%3E%3Cpath d='M-20,322 C160,311 320,333 480,315 S800,333 980,317' fill='none' stroke='%23c99a45' stroke-opacity='0.16'/%3E%3Cpath d='M-20,364 C160,348 320,380 480,354 S800,380 980,358' fill='none' stroke='%23c99a45' stroke-opacity='0.16'/%3E%3Cpath d='M-20,406 C160,385 320,427 480,394 S800,427 980,398' fill='none' stroke='%23c99a45' stroke-opacity='0.16'/%3E%3Cpath d='M-20,448 C160,426 320,470 480,435 S800,470 980,439' fill='none' stroke='%23c99a45' stroke-opacity='0.16'/%3E%3Cpath d='M-20,490 C160,472 320,508 480,479 S800,508 980,483' fill='none' stroke='%23c99a45' stroke-opacity='0.16'/%3E%3C/svg%3E") no-repeat right -140px top 30px / 960px auto;
+}
+.page-hero .container { position: relative; z-index: 1; }
+@media (max-width: 720px) {
+  .page-hero::before { background-size: 720px auto; background-position: right -200px top 10px; }
 }
