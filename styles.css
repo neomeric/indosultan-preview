@@ -15,6 +15,8 @@
   --forest-2:     #232328;
   --gold:         #8a6a3a;
   --gold-bright:  #a88752;
+  --gold-foil:    #c99a45;
+  --gold-foil-bright: #d9ad55;
   --gold-soft:    #c2a779;
   --silver:       #9a958a;
   --crimson:      #7e2230;
@@ -177,6 +179,7 @@ p { margin: 0; }
   color: var(--ink);
   display: inline-flex;
   align-items: baseline;
+  gap: 9px;
   text-transform: uppercase;
 }
 .brand-wordmark .indo { font-weight: 600; }
@@ -1764,15 +1767,15 @@ body::-webkit-scrollbar-thumb { background: color-mix(in oklch, var(--gold) 45%,
   height: auto;
   display: block;
   flex-shrink: 0;
-  color: var(--gold);
+  color: var(--gold-foil);
   transition: color .25s ease;
 }
-.brand:hover .brand-crown { color: var(--gold-bright); }
+.brand:hover .brand-crown { color: var(--gold-foil-bright); }
 .seal-crown {
   display: block;
   width: 28px;
   height: auto;
   margin: 0 auto 8px;
-  color: var(--gold-bright);
+  color: var(--gold-foil-bright);
 }
 .seal-mono .seal-is { line-height: 1; }
