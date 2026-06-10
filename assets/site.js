@@ -51,7 +51,7 @@
     '.op-card', '.soap-card', '.gallery .shot', '.perk', '.app', '.pack',
     '.step', '.timeline-row', '.job', '.news-item', '.news-feature',
     '.brand-card', '.variant', '.prose-2', '.spec-table', '.article-figure',
-    '.cap-card', '.glance', '.reach-map'].join(',');
+    '.cap-card', '.glance', '.reach-map', '.vshot'].join(',');
 
   var io = new IntersectionObserver(function (entries) {
     entries.forEach(function (en) {
