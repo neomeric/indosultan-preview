@@ -348,23 +348,46 @@
 
         <div class="reach-body">
           <div class="reach-list">
-            <div class="region"><span class="idx">01</span><span class="name">Asia <span class="it">Pacific</span></span><span class="count">Served</span></div>
-            <div class="region"><span class="idx">02</span><span class="name">Africa</span><span class="count">Served</span></div>
-            <div class="region"><span class="idx">03</span><span class="name">Europe</span><span class="count">Served</span></div>
-            <div class="region"><span class="idx">04</span><span class="name">Oceania</span><span class="count">Served</span></div>
-            <div class="region"><span class="idx">05</span><span class="name">Americas</span><span class="count">Served</span></div>
+            <div class="region" data-route="asia"><span class="idx">01</span><span class="name">Asia <span class="it">Pacific</span></span><span class="count">Served</span></div>
+            <div class="region" data-route="africa"><span class="idx">02</span><span class="name">Africa</span><span class="count">Served</span></div>
+            <div class="region" data-route="europe"><span class="idx">03</span><span class="name">Europe</span><span class="count">Served</span></div>
+            <div class="region" data-route="oceania"><span class="idx">04</span><span class="name">Oceania</span><span class="count">Served</span></div>
+            <div class="region" data-route="americas"><span class="idx">05</span><span class="name">Americas</span><span class="count">Served</span></div>
           </div>
           <div class="reach-map">
-            <div class="ph-corner" style="position:absolute;top:22px;left:22px">EXPORT NETWORK · 2026</div>
-            <div class="globe"></div>
-            <span class="pin lg" style="top:32%;left:22%"></span>
-            <span class="pin" style="top:28%;left:48%"></span>
-            <span class="pin lg" style="top:52%;left:52%"></span>
-            <span class="pin lg" style="top:44%;left:62%"></span>
-            <span class="pin lg" style="top:48%;left:78%"></span>
-            <span class="pin" style="top:62%;left:82%"></span>
-            <span class="pin" style="top:38%;left:70%"></span>
-            <div class="ph-corner" style="position:absolute;bottom:22px;right:22px;top:auto;left:auto">FIVE CONTINENTS SERVED</div>
+            <div class="ph-corner" style="position:absolute;top:22px;left:22px;z-index:2">EXPORT NETWORK · 2026</div>
+            <svg class="chart" viewBox="0 0 720 560" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Export routes from Bekasi, Indonesia to five continents">
+              <defs>
+                <radialGradient id="origin-glow" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="rgba(214,166,74,0.22)" />
+                  <stop offset="100%" stop-color="rgba(214,166,74,0)" />
+                </radialGradient>
+              </defs>
+              <g class="grat">
+                <circle cx="380" cy="340" r="70" /><circle cx="380" cy="340" r="140" /><circle cx="380" cy="340" r="215" /><circle cx="380" cy="340" r="295" />
+                <line x1="40" y1="340" x2="680" y2="340" /><line x1="380" y1="50" x2="380" y2="545" />
+                <line x1="160" y1="140" x2="600" y2="540" /><line x1="600" y1="140" x2="160" y2="540" />
+              </g>
+              <circle cx="380" cy="340" r="130" fill="url(#origin-glow)" />
+              <g class="routes">
+                <path class="route r-asia" d="M380,340 Q470,225 505,135" pathLength="1" />
+                <path class="route r-europe" d="M380,340 Q270,185 180,118" pathLength="1" />
+                <path class="route r-africa" d="M380,340 Q235,305 115,345" pathLength="1" />
+                <path class="route r-oceania" d="M380,340 Q480,425 545,470" pathLength="1" />
+                <path class="route r-americas" d="M380,340 Q540,250 640,205" pathLength="1" />
+              </g>
+              <g class="node n-asia"><circle class="ring" cx="505" cy="135" r="7" /><circle class="dot" cx="505" cy="135" r="2.6" /><text x="505" y="112" text-anchor="middle">ASIA PACIFIC</text></g>
+              <g class="node n-europe"><circle class="ring" cx="180" cy="118" r="7" /><circle class="dot" cx="180" cy="118" r="2.6" /><text x="180" y="95" text-anchor="middle">EUROPE</text></g>
+              <g class="node n-africa"><circle class="ring" cx="115" cy="345" r="7" /><circle class="dot" cx="115" cy="345" r="2.6" /><text x="115" y="375" text-anchor="middle">AFRICA</text></g>
+              <g class="node n-oceania"><circle class="ring" cx="545" cy="470" r="7" /><circle class="dot" cx="545" cy="470" r="2.6" /><text x="545" y="500" text-anchor="middle">OCEANIA</text></g>
+              <g class="node n-americas"><circle class="ring" cx="640" cy="205" r="7" /><circle class="dot" cx="640" cy="205" r="2.6" /><text x="640" y="182" text-anchor="middle">AMERICAS</text></g>
+              <g class="origin">
+                <circle class="pulse" cx="380" cy="340" r="9" />
+                <rect x="374.5" y="334.5" width="11" height="11" transform="rotate(45 380 340)" />
+                <text x="380" y="376" text-anchor="middle">BEKASI · ORIGIN</text>
+              </g>
+            </svg>
+            <div class="ph-corner" style="position:absolute;bottom:22px;right:22px;top:auto;left:auto;z-index:2">FIVE CONTINENTS SERVED</div>
           </div>
         </div>
       </div>

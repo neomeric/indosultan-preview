@@ -34,6 +34,15 @@
     });
   }
 
+  /* ---- Export chart: hovering a continent row spotlights its route ---- */
+  var map = document.querySelector('.reach-map');
+  if (map) {
+    document.querySelectorAll('.region[data-route]').forEach(function (row) {
+      row.addEventListener('mouseenter', function () { map.setAttribute('data-focus', row.dataset.route); });
+      row.addEventListener('mouseleave', function () { map.removeAttribute('data-focus'); });
+    });
+  }
+
   var motionOK = window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
   if (!motionOK || !('IntersectionObserver' in window)) { return; }
 
@@ -42,7 +51,7 @@
     '.op-card', '.soap-card', '.gallery .shot', '.perk', '.app', '.pack',
     '.step', '.timeline-row', '.job', '.news-item', '.news-feature',
     '.brand-card', '.variant', '.prose-2', '.spec-table', '.article-figure',
-    '.cap-card', '.glance'].join(',');
+    '.cap-card', '.glance', '.reach-map'].join(',');
 
   var io = new IntersectionObserver(function (entries) {
     entries.forEach(function (en) {
