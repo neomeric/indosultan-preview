@@ -572,3 +572,29 @@
 .page-hero-media.show-all { background: #e9e7e1; }
 .page-hero-media.show-all img { object-fit: contain; mix-blend-mode: normal; }
 .page-hero-media.show-all::after { display: none; }
+
+/* =========================================================
+   Phone breakpoint — internal pages (≤720px)
+   ========================================================= */
+.glance .cell, .field-row > * { min-width: 0; }
+
+@media (max-width: 720px) {
+  .page-hero-media { height: 240px; }
+  .glance { grid-template-columns: 1fr 1fr; }
+  .glance .v { font-size: 18px; }
+  .pillars, .app-grid, .perks, .pack-grid, .other-products { grid-template-columns: 1fr; }
+  .gallery { grid-template-columns: 1fr 1fr; }
+  .brand-grid { grid-template-columns: 1fr; }
+  .field-row { grid-template-columns: 1fr; }
+  .contact-grid { gap: 40px; }
+  .spec-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .news-item { grid-template-columns: 64px 1fr; gap: 14px; }
+  .timeline-row { grid-template-columns: 52px 1fr; gap: 16px; }
+  .job { grid-template-columns: 1fr 36px; }
+  .article p { font-size: 16px; }
+}
+
+@media (max-width: 430px) {
+  .soap-grid { grid-template-columns: 1fr; }
+  .gallery { grid-template-columns: 1fr; }
+}

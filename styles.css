@@ -1435,3 +1435,99 @@ body[data-palette="bone"] {
   .hero .hero-strip { animation: isj-settle 1.15s .34s both cubic-bezier(.2,.7,.2,1); }
   .hero .hero-strip .img { animation: isj-imgzoom 1.8s .34s both cubic-bezier(.2,.7,.2,1); }
 }
+
+/* =========================================================
+   Mobile navigation — burger + slide-down panel (≤1100px)
+   ========================================================= */
+.nav-burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px; height: 40px;
+  padding: 9px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 6px;
+  background: transparent;
+  cursor: pointer;
+}
+.nav-burger span {
+  display: block;
+  width: 100%; height: 2px;
+  background: var(--ink);
+  border-radius: 1px;
+  transition: transform .25s ease, opacity .2s ease;
+}
+.nav.open .nav-burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav.open .nav-burger span:nth-child(2) { opacity: 0; }
+.nav.open .nav-burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 100%; left: 0; right: 0;
+  flex-direction: column;
+  background: var(--cream);
+  border-bottom: 1px solid var(--rule-strong);
+  box-shadow: 0 32px 48px -28px rgba(15,15,18,0.35);
+  padding: 6px var(--gutter) 16px;
+  max-height: calc(100vh - 76px);
+  overflow-y: auto;
+}
+.nav.open .mobile-menu { display: flex; }
+.mobile-menu a {
+  padding: 13px 2px;
+  border-bottom: 1px solid var(--rule);
+  font-size: 15.5px;
+  color: var(--ink);
+}
+.mobile-menu a:last-child { border-bottom: none; color: var(--gold); }
+.mobile-menu .sub { padding-left: 18px; font-size: 14.5px; color: var(--ink-soft); }
+
+@media (max-width: 1100px) {
+  .nav-burger { display: inline-flex; }
+}
+
+/* Products dropdown — keyboard & touch support (was hover-only) */
+.nav-drop:focus-within .nav-drop-menu,
+.nav-drop.open .nav-drop-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+.nav-drop:focus-within .caret,
+.nav-drop.open .caret { transform: rotate(180deg); }
+
+/* =========================================================
+   Phone breakpoint — layout collapse below 720px.
+   Grid children must never force the page wider than the
+   viewport (nowrap CTAs inside grids did exactly that).
+   ========================================================= */
+.hero-foot > *, .page-hero-grid > *, .prose-2 > *, .contact-grid > *,
+.about-body > *, .reach-body > *, .founders-body > *, .cta-seal-wrap > * { min-width: 0; }
+
+@media (max-width: 720px) {
+  :root { --gutter: 20px; }
+  .hero-head { font-size: clamp(36px, 10.5vw, 48px); }
+  .hero-foot { margin-top: 36px; gap: 28px; }
+  .hero-foot .actions { flex-wrap: wrap; }
+  .hero-strip { height: 220px; margin-top: 40px; }
+  .cap-grid { grid-template-columns: 1fr; }
+  .stat .v { font-size: clamp(40px, 11vw, 56px); }
+  .cta-row { grid-template-columns: 1fr; gap: 28px; }
+  .cta-seal-wrap { grid-template-columns: 1fr; gap: 40px; padding-bottom: 64px; margin-bottom: 40px; }
+  .footer-bottom { flex-direction: column; gap: 14px; align-items: flex-start; }
+  .marquee { padding: 22px 0; }
+}
+
+@media (max-width: 430px) {
+  .nav-cta { padding: 9px 14px; font-size: 12px; }
+  .nav-cta .arrow { display: none; }
+  .brand-wordmark { letter-spacing: 0.08em; }
+}
+
+/* Footer legal/social row: wrap on narrow screens (3 social links added) */
+.footer-bottom .links { flex-wrap: wrap; }
+@media (max-width: 720px) {
+  .footer-bottom .links { gap: 14px 20px; }
+}
