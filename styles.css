@@ -1616,3 +1616,78 @@ body::-webkit-scrollbar-thumb { background: color-mix(in oklch, var(--gold) 45%,
         transition: transform .9s .25s cubic-bezier(.2,.7,.2,1); }
   .header.rv.in .section-marker .rule { transform: scaleX(1); }
 }
+
+/* News cards: whole card is a link — lift, zoom and gold cue on hover */
+.news-card { transition: transform .3s ease; }
+.news-card:hover { transform: translateY(-5px); }
+.news-card .thumb { transition: box-shadow .3s ease; }
+.news-card:hover .thumb { box-shadow: 0 26px 48px -26px rgba(15,15,18,.38); }
+.news-card .thumb .img { transition: transform 1.1s cubic-bezier(.2,.7,.2,1); }
+.news-card:hover .thumb .img { transform: scale(1.05); }
+.news-card .read { transition: color .25s ease; }
+.news-card:hover .read { color: var(--gold); }
+.news-card:hover h3 .it { color: var(--gold-bright); }
+
+/* =========================================================
+   Line index — quiet, clickable product band (replaces the
+   scrolling marquee, which read as template-grade)
+   ========================================================= */
+.line-index {
+  background: var(--ink);
+  border-top: 1px solid rgba(245,235,210,0.10);
+  border-bottom: 1px solid rgba(245,235,210,0.10);
+}
+.line-index-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px 0;
+  padding: 26px var(--gutter);
+}
+.line-index .k {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(245,235,210,0.38);
+  padding-right: 34px;
+}
+.line-index a {
+  position: relative;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(245,235,210,0.66);
+  padding: 6px 0;
+  transition: color .25s ease;
+}
+.line-index a::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 100%; height: 1px;
+  background: var(--gold-bright);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .3s cubic-bezier(.2,.7,.2,1);
+}
+.line-index a:hover { color: var(--gold-bright); }
+.line-index a:hover::after { transform: scaleX(1); }
+.line-index .d {
+  color: var(--gold);
+  font-size: 8px;
+  padding: 0 26px;
+  opacity: 0.85;
+}
+@media (max-width: 720px) {
+  .line-index .k { width: 100%; text-align: center; padding: 0 0 10px; }
+  .line-index .d { padding: 0 14px; }
+  .line-index a { font-size: 11px; letter-spacing: 0.16em; }
+}
+
+/* Product index rows are whole-row links */
+.product-row:hover h3 .it { color: var(--gold-bright); }
+.footer-bottom .links a { transition: color .2s ease; }
+.footer-bottom .links a:hover { color: var(--gold-bright); }
