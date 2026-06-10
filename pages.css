@@ -651,3 +651,23 @@
 .vshot:hover .pic img { transform: scale(1.06); }
 .vshot figcaption { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft); text-align: center; }
 @media (max-width: 720px) { .variant-shots { grid-template-columns: 1fr 1fr; gap: 14px; } }
+
+/* =========================================================
+   Warm product tiles — the client's renders are transparent,
+   so they ride on warm paper with a soft contact shadow
+   instead of clinical white (multiply was for the old
+   white-background cutouts; it would tint pack whites now)
+   ========================================================= */
+.page-hero-media.contain,
+.soap-card .pic,
+.vshot .pic,
+.line-card .media.contain {
+  background: radial-gradient(120% 95% at 50% 18%, #fbf9f4 0%, #f1ebe0 62%, #e9e1d2 100%);
+}
+.page-hero-media.contain img,
+.soap-card .pic img,
+.vshot .pic img,
+.line-card .media.contain img {
+  mix-blend-mode: normal;
+  filter: drop-shadow(0 14px 16px rgba(74, 56, 28, 0.16));
+}
