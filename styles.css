@@ -1794,3 +1794,8 @@ body::-webkit-scrollbar-thumb { background: color-mix(in oklch, var(--gold) 45%,
 @media (max-width: 720px) {
   .line-index .d { margin: 0 14px; }
 }
+
+/* Agency credit in footer */
+.footer-bottom .credit { color: inherit; }
+.footer-bottom .credit a { color: var(--gold); transition: color .2s ease; }
+.footer-bottom .credit a:hover { color: var(--gold-bright); }
